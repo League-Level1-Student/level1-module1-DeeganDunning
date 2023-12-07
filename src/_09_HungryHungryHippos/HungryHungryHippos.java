@@ -24,7 +24,7 @@ import game_tools.GameScene;
  * Objective:
  * You will notice there is only 1 gray Hippo named "hippo". In the original
  * game each hippo is a different color with a different name:
- *  Lizzie Hippo (purple)
+ *  Lizzie Hippo (pink)
  *  Henry Hippo (orange)
  *  Homer Hippo (green)
  *  Harry Hippo (yellow)
@@ -61,7 +61,12 @@ public class HungryHungryHippos implements GameScene, GameControlScene {
      * Create your hippo objects here. The "left" input parameter indicates
      * which side the hippo is drawn.
      */
-    Hippo myHippoObject = new Hippo("left");
+    Hippo left = new Hippo("left", "Lizzie" , Color.pink);
+    Hippo down = new Hippo("down", "Henry", Color.orange);
+    Hippo right = new Hippo("right", "Homer", Color.green);
+    Hippo up = new Hippo("up", "Harry", Color.yellow);
+    
+    
 
     public HungryHungryHippos() {
         gameFrame.setScene(this);
@@ -96,7 +101,11 @@ public class HungryHungryHippos implements GameScene, GameControlScene {
         /*
          * Draw all the hippos here
          */
-        myHippoObject.draw(g);
+        left.draw(g);
+        down.draw(g);
+        right.draw(g);
+        up.draw(g);
+        
         
         if (startGame) {
             /*
@@ -109,7 +118,10 @@ public class HungryHungryHippos implements GameScene, GameControlScene {
              * checkHippoEating(myHippoObject) method. Make sure to do
              * this for all of your hippos!
              */
-            checkHippoEating(myHippoObject);
+            checkHippoEating(left);
+            checkHippoEating(down);
+            checkHippoEating(right);
+            checkHippoEating(up);
         }
     }
 
@@ -123,13 +135,13 @@ public class HungryHungryHippos implements GameScene, GameControlScene {
         if (keyCode == KeyEvent.VK_S) {
             startGame = true;
         } else if (keyCode == KeyEvent.VK_1) {
-            myHippoObject.eat();
+            left.eat();
         } else if (keyCode == KeyEvent.VK_2) {
-            
+            down.eat();
         } else if (keyCode == KeyEvent.VK_3) {
-            
+            right.eat();
         } else if (keyCode == KeyEvent.VK_4) {
-            
+            up.eat();
         }
     }
     

@@ -51,8 +51,8 @@ import game_tools.GameControlScene;
  */
 
 public class SolarSystem implements GameControlScene {
-    static final int DISPLAY_WIDTH = 1000;
-    static final int DISPLAY_HEIGHT = DISPLAY_WIDTH;
+    static final int DISPLAY_WIDTH = 2000;
+    static final int DISPLAY_HEIGHT = 1260;
     static final int CENTER_X = DISPLAY_WIDTH / 2;
     static final int CENTER_Y = DISPLAY_HEIGHT / 2;
     static final int SUN_RADIUS_PIXELS = (1391 / 2) / 20;
@@ -66,8 +66,14 @@ public class SolarSystem implements GameControlScene {
     Long startTimeMs = null;
     Game gameFrame = new Game("Solar System");
     
-    Planet earth = new Planet(12);
-    
+    Planet earth = new Planet(12, 1496 / 10, 365, 1, Color.blue);
+    Planet mercury = new Planet(4, 579 / 10, 88, 0, Color.gray);
+    Planet venus = new Planet(12, 1082 / 10, 224, 0, Color.orange );
+    Planet mars = new Planet(6, 2279 / 10, 687, 2, Color.red);
+    Planet jupiter = new Planet(142, 7786 / 10, 4331, 79, new Color(255, 175, 84));
+    Planet saturn = new Planet(120, 14335 / 10, 10747, 82, new Color(194, 178, 128));
+    Planet uranus = new Planet(51, 28725/ 10, 30589, 27, Color.cyan);
+    Planet neptune = new Planet(49, 449651 / 10, 59800, 14, new Color(2, 86, 222));
     public SolarSystem() {
         gameFrame.setScene(this);
         gameFrame.start();
@@ -76,7 +82,7 @@ public class SolarSystem implements GameControlScene {
         /*
          * Add Earth's moon
          */
-        earth.addMoon();
+       // earth.addMoon();
         
         sunX = CENTER_X - SUN_RADIUS_PIXELS;
         sunY = CENTER_Y - SUN_RADIUS_PIXELS;
@@ -118,6 +124,13 @@ public class SolarSystem implements GameControlScene {
          * Add planets here
          */
         earth.draw(g, numDays);
+        mercury.draw(g, numDays);
+        venus.draw(g, numDays);
+        mars.draw(g, numDays);
+        jupiter.draw(g, numDays);
+        saturn.draw(g, numDays);
+        uranus.draw(g, numDays);
+        neptune.draw(g, numDays);
     }
     
     @Override
